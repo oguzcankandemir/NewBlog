@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Entity
 {
-    public class Article : EntityBase, IEntityBase
+    public class Article : EntityBase
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
