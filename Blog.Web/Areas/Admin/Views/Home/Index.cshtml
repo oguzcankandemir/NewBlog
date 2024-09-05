@@ -1,0 +1,10 @@
+﻿@using Blog.Entity
+@model List<Article>
+@{
+    Layout = null;
+}
+
+@foreach(var article in Model)
+{
+    <h1>@article.Title</h1>
+}
