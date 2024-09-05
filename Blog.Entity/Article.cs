@@ -9,7 +9,6 @@ namespace Blog.Entity
 {
     public class Article : EntityBase
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public int ViewCount { get; set; }
@@ -17,6 +16,5 @@ namespace Blog.Entity
         public Category Category { get; set; }
         public Guid ImageId { get; set; }
         public Image Image { get; set; }
-
     }
 }
