@@ -1,14 +1,43 @@
 using Blog.Data;
 using Blog.Data.Extensions;
+using Blog.Entity;
 using Blog.Service.Extensions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.LoadDataLayerExtensions(builder.Configuration);
 builder.Services.LoadServiceLayerExtension();
+builder.Services.AddSession();
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+{
+    opt.Password.RequireNonAlphanumeric = false;
+    opt.Password.RequireLowercase = false;
+    opt.Password.RequireUppercase = false;
+})
+    .AddRoleManager<RoleManager<AppRole>>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.LoginPath = new PathString("/Admin/Auth/Login");
+    config.LogoutPath = new PathString("/Admin/Auth/Logout");
+    config.Cookie = new CookieBuilder
+    {
+        Name = "NewBlog",
+        HttpOnly = true,
+        SameSite = SameSiteMode.Strict,
+        SecurePolicy = CookieSecurePolicy.SameAsRequest //Always 
+    };
+    config.SlidingExpiration = true;
+    config.ExpireTimeSpan = TimeSpan.FromDays(7);
+    config.AccessDeniedPath = new PathString("/Admin/Auth/AccessDenied");
+});
 
 var app = builder.Build();
 

@@ -39,21 +39,21 @@ namespace Blog.Data.Mappings
 
             builder.HasData(new AppRole
             {
-                Id = Guid.Parse("6C187EC3-8775-411E-89EE-08E56DFDE184"),
+                Id = Guid.Parse("16EA936C-7A28-4C30-86A2-9A9704B6115E"),
                 Name = "Superadmin",
                 NormalizedName = "SUPERADMIN",
                 ConcurrencyStamp = Guid.NewGuid().ToString()
             },
             new AppRole
             {
-                Id = Guid.Parse("219065EA-1101-4A3A-94CC-0E84C1213262"),
+                Id = Guid.Parse("7CB750CF-3612-4FB4-9F7D-A38BA8F16BF4"),
                 Name = "Admin",
                 NormalizedName = "ADMIN",
                 ConcurrencyStamp = Guid.NewGuid().ToString()
             },
             new AppRole
             {
-                Id = Guid.Parse("8FD817B1-443B-4401-9BE1-8075BE8EF7CD"),
+                Id = Guid.Parse("EDF6C246-41D8-475F-8D92-41DDDAC3AEFB"),
                 Name = "User",
                 NormalizedName = "USER",
                 ConcurrencyStamp = Guid.NewGuid().ToString()

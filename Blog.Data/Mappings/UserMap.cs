@@ -50,33 +50,35 @@ namespace Blog.Data.Mappings
 
             var superadmin = new AppUser
             {
-                Id = Guid.Parse("40C85A0D-35AC-4960-BA59-6A3C3B4B54F5"),
+                Id = Guid.Parse("CB94223B-CCB8-4F2F-93D7-0DF96A7F065C"),
                 UserName = "superadmin@gmail.com",
                 NormalizedUserName = "SUPERADMIN@GMAIL.COM",
                 Email = "superadmin@gmail.com",
                 NormalizedEmail = "SUPERADMIN@GMAIL.COM",
-                PhoneNumber = "+905459999999",
+                PhoneNumber = "+905439999999",
                 FirstName = "Oğuzcan",
                 LastName = "Kandemir",
                 PhoneNumberConfirmed = true,
                 EmailConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString()
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageId = Guid.Parse("F71F4B9A-AA60-461D-B398-DE31001BF214")
             };
-            superadmin.PasswordHash = CreatePasswordHash(superadmin,"123456");
+            superadmin.PasswordHash = CreatePasswordHash(superadmin, "123456");
 
             var admin = new AppUser
             {
-                Id = Guid.Parse("6670818B-B8F4-4CA6-BF22-2C738E49C549"),
+                Id = Guid.Parse("3AA42229-1C0F-4630-8C1A-DB879ECD0427"),
                 UserName = "admin@gmail.com",
                 NormalizedUserName = "ADMIN@GMAIL.COM",
                 Email = "admin@gmail.com",
                 NormalizedEmail = "ADMIN@GMAIL.COM",
-                PhoneNumber = "+905459999999",
+                PhoneNumber = "+905439999988",
                 FirstName = "Admin",
                 LastName = "User",
                 PhoneNumberConfirmed = false,
                 EmailConfirmed = false,
-                SecurityStamp = Guid.NewGuid().ToString()
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageId = Guid.Parse("D16A6EC7-8C50-4AB0-89A5-02B9A551F0FA")
             };
             admin.PasswordHash = CreatePasswordHash(admin, "123456");
 
