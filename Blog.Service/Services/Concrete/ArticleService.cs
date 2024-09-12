@@ -23,8 +23,9 @@ namespace Blog.Service.Services.Concrete
         }
         public async Task<List<ArticleDto>> GetAllArticlesAsync()
         {
-            var articles = await unitOfWork.GetRepository<Article>().GetAllAsync();
+            var articles = await unitOfWork.GetRepository<Article>().GetAllAsync(x => !x.IsDeleted, x => x.Category);
             var map = mapper.Map<List<ArticleDto>>(articles);
+
             return map;
         }
     }
