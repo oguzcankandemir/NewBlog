@@ -16,6 +16,7 @@ namespace Blog.Service.Extensions
         {
             var assemby = Assembly.GetExecutingAssembly();
             services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<ICategoryService, CategoryService>();
             services.AddAutoMapper(assemby);
             return services;
         }

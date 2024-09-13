@@ -21,6 +21,24 @@ namespace Blog.Service.Services.Concrete
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
+
+        public async Task CreateArticleAsync(ArticleAddDto articleAddDto)
+        {
+            var userId = Guid.Parse("CB94223B-CCB8-4F2F-93D7-0DF96A7F065C");
+            var article = new Article
+            {
+                Title = articleAddDto.Title,
+                Content = articleAddDto.Content,
+                CategoryId = articleAddDto.CategoryId,
+                UserId = userId,
+                CreatedBy = userId.ToString(),  // `CreatedBy` alanına değer atanıyor
+                CreatedDate = DateTime.Now  // Tarih bilgisi de eklenmeli
+            };
+            await unitOfWork.GetRepository<Article>().AddAsync(article);
+            await unitOfWork.SaveAsync();
+
+        }
+
         public async Task<List<ArticleDto>> GetAllArticlesAsync()
         {
             var articles = await unitOfWork.GetRepository<Article>().GetAllAsync(x => !x.IsDeleted, x => x.Category);

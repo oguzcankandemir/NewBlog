@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace Blog.Service.AutoMapper
 {
-    public class ArticleProfile:Profile
+    public class ArticleProfile : Profile
     {
         public ArticleProfile()
         {
-            CreateMap<ArticleDto, Article>().ReverseMap();    
+            CreateMap<ArticleDto, Article>().ReverseMap();
+            CreateMap<ArticleAddDto, Article>().ReverseMap();
         }
     }
 }
